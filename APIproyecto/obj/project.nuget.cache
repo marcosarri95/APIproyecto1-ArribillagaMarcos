@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uCznGnfY4oK22izvtv1LrlgWBRZJftx6jwd8kvwFAfmoPTGECUe2hBjjBFuEejA265HPXTkMALUx6TBynxAyjA==",
+  "dgSpecHash": "bM61Neffi6oMTICAFGjHDrhgBo4gbVQfy5v694AHkvzABOEWxCtLzy8ppoa97GgFkHR9sgjuVYtYs8DmZK5qAw==",
   "success": true,
-  "projectFilePath": "D:\\Parte de MARCOS\\Curso C#\\Clase 6 - Tipos de clases, herencia e interfaces\\APIproyecto\\APIproyecto.csproj",
+  "projectFilePath": "D:\\Parte de MARCOS\\Curso C#\\Clase 13 - Manipular datos con .NET\\APIproyecto\\APIproyecto.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marco\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

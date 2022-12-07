@@ -657,11 +657,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Parte de MARCOS\\Curso C#\\Clase 6 - Tipos de clases, herencia e interfaces\\APIproyecto\\APIproyecto.csproj",
+      "projectUniqueName": "D:\\Parte de MARCOS\\Curso C#\\Clase 13 - Manipular datos con .NET\\APIproyecto\\APIproyecto.csproj",
       "projectName": "APIproyecto",
-      "projectPath": "D:\\Parte de MARCOS\\Curso C#\\Clase 6 - Tipos de clases, herencia e interfaces\\APIproyecto\\APIproyecto.csproj",
+      "projectPath": "D:\\Parte de MARCOS\\Curso C#\\Clase 13 - Manipular datos con .NET\\APIproyecto\\APIproyecto.csproj",
       "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
-      "outputPath": "D:\\Parte de MARCOS\\Curso C#\\Clase 6 - Tipos de clases, herencia e interfaces\\APIproyecto\\obj\\",
+      "outputPath": "D:\\Parte de MARCOS\\Curso C#\\Clase 13 - Manipular datos con .NET\\APIproyecto\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

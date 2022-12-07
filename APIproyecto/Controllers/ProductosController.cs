@@ -8,51 +8,104 @@ namespace APIproyecto.Controllers
     [Route("api/[controller]/[action]")]
     public class ProductosController : Controller
     {
-        private SistemaGestion gestion = new SistemaGestion();
+
         
-        [HttpGet]
-        public IActionResult MuestraUsuarios()
-        {
-             //Usuario usuario = new Usuario();
-             List<Usuario> user = new List<Usuario>();
-            user = gestion.ConsultaUsuarios();
-            return Ok(user);
-        }
+        private SistemaGestion gestion = new SistemaGestion();
+
+        //MUESTRA PRODUCTOS Y PRODUCTOS VENDIDOS
 
         [HttpGet]
         public IActionResult MuestraProductos()
         {
-            //Producto producto = new Producto();
-            List<Producto> prod = new List<Producto>();
-            prod = gestion.ConsultaProductos();
-            return Ok(prod);
+            try
+            {
+                //Producto producto = new Producto();
+                List<Producto> prod = new List<Producto>();
+                prod = gestion.ConsultaProductos();
+                return Ok(prod);
+            }
+            catch(Exception ex) { return BadRequest(ex.Message); }
         }
 
-        [HttpGet]
-        public IActionResult MuestraProductosVendidos()
+        
+
+        
+        //Agrega 
+        
+        [HttpPost]
+        public IActionResult AgregarProducto([FromBody] Producto producto)
         {
-            //ProductoVendido productov = new ProductoVendido();
-            List<ProductoVendido> prodv = new List<ProductoVendido>();
-            prodv = gestion.ConsultaProductoVendido();
-            return Ok(prodv);
+            try
+            {
+                if ((producto.Descripcion == "") || (producto.Descripcion == null))
+                {
+                    return BadRequest("Se debe agregar el comentario al producto cargado");
+                }
+                else if (producto.Costo <= 0)
+                {
+                    return BadRequest("El producto debe tener un costo");
+                }
+                else if (producto.PrecioVenta <= 0){
+                    return BadRequest("El producto debe tener un precio de venta");
+                }
+                else if (producto.Stock <= 0) {
+                    return BadRequest("El producto debe tener una cantidad determinada de stock");
+                }
+                else {
+
+                    if (gestion.AgregaProducto(producto) == 1)
+                    {
+                        return Ok();
+                    }
+                    else
+                    {
+                        return BadRequest();
+                    }
+                }
+            }
+            catch (Exception ex) { return BadRequest(ex.Message); }
         }
 
-        [HttpGet]
-        public IActionResult MuestraVentas()
-        {
-            //Venta venta = new Venta();
-            List<Venta> ventas = new List<Venta>();
-            ventas = gestion.ConsultaVenta();
-            return Ok(ventas);
-        }
 
-        [HttpGet]
-        public IActionResult InicioSesion()
+        //MODIFICA
+        [HttpPut]
+        public IActionResult ModificaProducto([FromBody] Producto producto)
         {
-          
-            List<inicio> user = new List<inicio>();
-            user = gestion.InicioSesion();
-            return Ok(user);
+            try
+            {
+                
+                  if (gestion.ModificaProducto(producto) == 1)
+                  {
+                      return Ok();
+                  }
+                  else
+                  {
+                      return BadRequest();
+                  }
+               
+            }
+            catch (Exception ex) { return BadRequest(ex.Message); }
+        }
+        
+
+        //ELIMINA
+     
+        [HttpDelete]
+        public IActionResult EliminaProducto([FromBody] int id)
+        {
+            try
+            {
+                if (gestion.EliminaProducto(id) >= 1)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return NotFound();
+                }
+
+            }
+            catch (Exception ex) { return BadRequest(ex.Message); }
         }
     }
 }
