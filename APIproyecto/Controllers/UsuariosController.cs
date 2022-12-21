@@ -10,17 +10,7 @@ namespace APIproyecto.Controllers
         private SistemaGestion gestion = new SistemaGestion();
 
         //LECTURA USUARIOS
-        [HttpGet]
-        public IActionResult InicioSesion()
-        {
-            try
-            {
-                List<inicio> user = new List<inicio>();
-                user = gestion.InicioSesion();
-                return Ok(user);
-            }
-            catch (Exception ex) { return BadRequest(ex.Message); }
-        }
+       
 
         [HttpGet]
         public IActionResult MuestraUsuarios()
@@ -31,6 +21,31 @@ namespace APIproyecto.Controllers
                 List<Usuario> user = new List<Usuario>();
                 user = gestion.ConsultaUsuarios();
                 return Ok(user);
+            }
+            catch (Exception ex) { return BadRequest(ex.Message); }
+        }
+
+        [HttpGet]
+        public IActionResult MuestraUsuario ([FromQuery] int id)
+        {
+            try
+            {
+                Usuario user = new Usuario();
+                user = gestion.ConsultaUsuario(id);
+                return Ok(user);
+            }
+            catch (Exception ex) { return BadRequest(ex.Message); }
+        }
+
+        [HttpGet]
+        public IActionResult MuestraNombres()
+        {
+            try
+            {
+                //Usuario usuario = new Usuario();
+                List<string> Nombres = new List<string>();
+                Nombres = gestion.TraerNombres();
+                return Ok(Nombres);
             }
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
@@ -82,7 +97,7 @@ namespace APIproyecto.Controllers
         {
             try
             {
-                if (gestion.EliminaUsuario(id) == 1)
+                if (gestion.EliminaUsuario(id) >= 1)
                 {
                     return Ok();
                 }

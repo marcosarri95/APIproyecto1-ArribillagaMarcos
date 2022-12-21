@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bM61Neffi6oMTICAFGjHDrhgBo4gbVQfy5v694AHkvzABOEWxCtLzy8ppoa97GgFkHR9sgjuVYtYs8DmZK5qAw==",
+  "dgSpecHash": "V9HjRpPToerf+6iz+BCZUW6iblaR9Ut5/2GCGBerIz97rM9Jm7anDGdPIqssqFax8aOxYcTGgWha70Y4cmPCvg==",
   "success": true,
-  "projectFilePath": "D:\\Parte de MARCOS\\Curso C#\\Clase 13 - Manipular datos con .NET\\APIproyecto\\APIproyecto.csproj",
+  "projectFilePath": "D:\\Parte de MARCOS\\Curso C#\\Clase 15 - APIs y end points de modificación\\APIproyecto\\APIproyecto.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marco\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

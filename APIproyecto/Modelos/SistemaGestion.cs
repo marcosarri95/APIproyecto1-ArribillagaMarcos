@@ -16,6 +16,8 @@ namespace APIproyecto.Modelos
         {
         }
 
+        //LISTADO
+
         public List<Usuario> ConsultaUsuarios()
         {
 
@@ -67,6 +69,58 @@ namespace APIproyecto.Modelos
                 
             }
             return listaUsuario;
+        }
+
+        public Usuario ConsultaUsuario(int id)
+        {
+            Usuario user = new Usuario();
+            try
+            {
+                
+                using (SqlConnection connection = new SqlConnection(cadenaConexion))
+                {
+                    Console.WriteLine("Abriendo Conexión");
+
+                    using (var cmd = new SqlCommand("Select * from Usuario WHERE Id = @id", connection))
+                    {
+                        connection.Open();
+                        var parametros = new SqlParameter();
+
+                        parametros.ParameterName = "id";
+                        parametros.SqlDbType = SqlDbType.Int;
+                        parametros.Value = id;
+                        cmd.Parameters.Add(parametros);
+
+                        using (SqlDataReader datos = cmd.ExecuteReader())
+                        {
+                            if (datos.HasRows)
+                            {
+                                while (datos.Read())
+                                {
+                                    user.ID = Convert.ToInt32(datos["Id"]);
+                                    user.Nombre = datos["Nombre"].ToString();
+                                    user.Apellido = datos["Apellido"].ToString();
+                                    user.NombreUsuario = datos["NombreUsuario"].ToString();
+                                    user.Contrasenia = datos["Contraseña"].ToString();
+                                    user.Email = datos["Mail"].ToString();
+                                }
+
+                            }
+                        }
+                    }
+                    Console.WriteLine("Cerrando Conexión");
+                    connection.Close();
+
+                    return user;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+               
+            }
+            return user;
         }
 
         public List<Producto> ConsultaProductos()
@@ -223,12 +277,12 @@ namespace APIproyecto.Modelos
             return listaVenta;
         }
 
-        public List<inicio> InicioSesion()
+        public bool InicioSesion(inicio inicio)
         {
-            List<inicio> listaSesion = new List<inicio>();
-
+            bool retorno = false;
             try
             {
+                
                 using (SqlConnection connection = new SqlConnection(cadenaConexion))
                 {
                     Console.WriteLine("Abriendo Conexión");
@@ -248,7 +302,56 @@ namespace APIproyecto.Modelos
                                     inicio user = new inicio();
                                     user.NombreUser = datos["NombreUsuario"].ToString();
                                     user.pass = datos["Contraseña"].ToString();
-                                    listaSesion.Add(user);
+                                    if(retorno != true){
+                                        if (user.NombreUser == inicio.NombreUser && user.pass == inicio.pass) { retorno = true; } }
+ 
+                                }
+                            }
+                        }
+                    }
+                    Console.WriteLine("Cerrando Conexión");
+                    connection.Close();
+                    
+
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+
+            }
+            return retorno;
+        }
+
+        public List<string> TraerNombres()
+        {
+            var listaNombre = new List<string>();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(cadenaConexion))
+                {
+                    Console.WriteLine("Abriendo Conexión");
+
+                    using (var cmd = new SqlCommand("Select * from Usuario", connection))
+                    {
+                        connection.Open();
+
+                        var parametros = new SqlParameter();
+
+                        using (SqlDataReader datos = cmd.ExecuteReader())
+                        {
+                            if (datos.HasRows)
+                            {
+                                while (datos.Read())
+                                {
+                                    Usuario user = new Usuario();
+                                    
+                                    user.Nombre = datos["Nombre"].ToString();
+                                   
+                                    listaNombre.Add(user.Nombre);
 
 
                                 }
@@ -258,7 +361,7 @@ namespace APIproyecto.Modelos
                     Console.WriteLine("Cerrando Conexión");
                     connection.Close();
 
-
+                    return listaNombre;
                 }
 
             }
@@ -266,10 +369,10 @@ namespace APIproyecto.Modelos
             {
                 Console.WriteLine(ex.Message);
 
-
             }
-            return listaSesion;
+            return listaNombre;
         }
+
 
         //Agregado
 
@@ -355,7 +458,7 @@ namespace APIproyecto.Modelos
         }
 
         //Eliminado
-        public int EliminaUsuario(int id)
+        public int EliminaUsuario(int ID)
         {
 
             try
@@ -365,22 +468,68 @@ namespace APIproyecto.Modelos
                 {
                     Console.WriteLine("Abriendo Conexión");
 
-                    using (var cmd = new SqlCommand("DELETE FROM Usuario WHERE Id = @id ", connection))
-                    {
-                        connection.Open();
+                    connection.Open();
 
-                        cmd.Parameters.Add(new SqlParameter("id", SqlDbType.Int) { Value = id });
-                        retorno = cmd.ExecuteNonQuery(); //Se utiliza cuando no se devuelve ningun valor DE LA BASE DE DATOS
+                    using (var cmd = new SqlCommand("DELETE ProductoVendido FROM ProductoVendido AS A INNER JOIN Venta as B ON A.IdVenta = B.Id WHERE B.IdUsuario = @iduser", connection))
+                    {
+
+                        cmd.Parameters.Add(new SqlParameter("iduser", SqlDbType.Int) { Value = ID });
+                        retorno += cmd.ExecuteNonQuery(); //Se utiliza cuando no se devuelve ningun valor DE LA BASE DE DATOS
                         //cmd.ExecuteScalar();//Se utiliza cuando se necesita devolver un valor
                         //retorno = Convert.ToInt32(cmd.ExecuteScalar());
+                        //Console.WriteLine("Pase la tabla ProductoVendido para venta");
+                    }
+
+                    using (var cmd = new SqlCommand("DELETE ProductoVendido FROM ProductoVendido AS A INNER JOIN Producto as B ON A.IdProducto = B.Id WHERE B.IdUsuario = @iduser", connection))
+                    {
+
+                        cmd.Parameters.Add(new SqlParameter("iduser", SqlDbType.Int) { Value = ID });
+                        retorno += cmd.ExecuteNonQuery(); //Se utiliza cuando no se devuelve ningun valor DE LA BASE DE DATOS
+                        //cmd.ExecuteScalar();//Se utiliza cuando se necesita devolver un valor
+                        //retorno = Convert.ToInt32(cmd.ExecuteScalar());
+                        //Console.WriteLine("Pase la tabla ProductoVendido para producto");
+                    }
+
+                    using (var cmd = new SqlCommand("DELETE FROM Venta WHERE IdUsuario = @iduser ", connection))
+                    {
+
+                        cmd.Parameters.Add(new SqlParameter("iduser", SqlDbType.Int) { Value = ID });
+                        retorno += cmd.ExecuteNonQuery(); //Se utiliza cuando no se devuelve ningun valor DE LA BASE DE DATOS
+                        //cmd.ExecuteScalar();//Se utiliza cuando se necesita devolver un valor
+                        //retorno = Convert.ToInt32(cmd.ExecuteScalar());
+                        //Console.WriteLine("Pase la tabla Venta");
+                    }
+
+                    
+
+                    using (var cmd = new SqlCommand("DELETE FROM Producto WHERE IdUsuario = @id ", connection))
+                    {
+
+                        cmd.Parameters.Add(new SqlParameter("id", SqlDbType.Int) { Value = ID });
+                        retorno += cmd.ExecuteNonQuery(); //Se utiliza cuando no se devuelve ningun valor DE LA BASE DE DATOS
+                        //cmd.ExecuteScalar();//Se utiliza cuando se necesita devolver un valor
+                        //retorno = Convert.ToInt32(cmd.ExecuteScalar());
+                        //Console.WriteLine("Pase la tabla Producto");
+                    }
+
+                    using (var cmd = new SqlCommand("DELETE FROM Usuario WHERE Id = @id ", connection))
+                    {
+                        //connection.Open();
+
+                        cmd.Parameters.Add(new SqlParameter("id", SqlDbType.Int) { Value = ID });
+                        retorno += cmd.ExecuteNonQuery(); //Se utiliza cuando no se devuelve ningun valor DE LA BASE DE DATOS
+                        //cmd.ExecuteScalar();//Se utiliza cuando se necesita devolver un valor
+                        //retorno = Convert.ToInt32(cmd.ExecuteScalar());
+                        //Console.WriteLine("Pase la tabla Usuario");
                     }
                     // Console.WriteLine("Cerrando Conexión");
 
                     connection.Close();
+                    return retorno;
 
                 }
 
-                return retorno;
+                
             }
             catch (Exception ex)
             {
@@ -420,12 +569,14 @@ namespace APIproyecto.Modelos
                                                           //cmd.ExecuteScalar();//Se utiliza cuando se necesita devolver un valor
                                                           //retorno = Convert.ToInt32(cmd.ExecuteScalar());
                     }
+                    
 
                     connection.Close();
+                    return retorno;
 
                 }
 
-                return retorno;
+                
             }
             catch (Exception ex)
             {
@@ -434,6 +585,54 @@ namespace APIproyecto.Modelos
 
             }
 
+        }
+
+        public int EliminaVenta(int ID)
+        {
+            int retorno = 0;
+            try
+            {
+                
+                using (SqlConnection connection = new SqlConnection(cadenaConexion))
+                {
+                    Console.WriteLine("Abriendo Conexión");
+
+                    connection.Open();
+                    using (var cmd = new SqlCommand("DELETE FROM ProductoVendido WHERE IdVenta = @id ", connection))
+                    {
+
+                        cmd.Parameters.Add(new SqlParameter("id", SqlDbType.Int) { Value = ID });
+                        retorno += cmd.ExecuteNonQuery(); //Se utiliza cuando no se devuelve ningun valor DE LA BASE DE DATOS
+                        //cmd.ExecuteScalar();//Se utiliza cuando se necesita devolver un valor
+                        //retorno = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+
+                    using (var cmd = new SqlCommand("DELETE FROM Venta WHERE Id = @id ", connection))
+                    {
+
+                        cmd.Parameters.Add(new SqlParameter("id", SqlDbType.Int) { Value = ID });
+                        retorno += cmd.ExecuteNonQuery(); //Se utiliza cuando no se devuelve ningun valor DE LA BASE DE DATOS
+                        //cmd.ExecuteScalar();//Se utiliza cuando se necesita devolver un valor
+                        //retorno = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+
+
+
+
+                    connection.Close();
+                    return retorno;
+
+                }
+
+               
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return 0;
+
+            }
+            
         }
 
         //Modificacion

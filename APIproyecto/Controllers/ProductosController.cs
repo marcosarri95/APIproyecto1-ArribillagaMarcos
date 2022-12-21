@@ -28,8 +28,6 @@ namespace APIproyecto.Controllers
         }
 
         
-
-        
         //Agrega 
         
         [HttpPost]

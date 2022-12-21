@@ -25,6 +25,8 @@ namespace APIproyecto.Controllers
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
 
+        //AgregaVentas
+
         [HttpPost]
         public IActionResult AgregaVentas([FromBody] List<ProductoVendido> productov, int idUser)
         {

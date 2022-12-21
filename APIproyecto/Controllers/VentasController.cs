@@ -23,6 +23,24 @@ namespace APIproyecto.Controllers
             catch (Exception ex) { return BadRequest(ex.Message); }
         }
 
-        
+        //ELIMINA VENTAS
+
+        [HttpDelete]
+        public IActionResult EliminaVenta([FromBody] int id)
+        {
+            try
+            {
+                if (gestion.EliminaVenta(id) >= 1)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return NotFound();
+                }
+
+            }
+            catch (Exception ex) { return BadRequest(ex.Message); }
+        }
     }
 }

@@ -64,3 +64,36 @@ D:\Parte de MARCOS\Curso C#\Clase 13 - Manipular datos con .NET\APIproyecto\obj\
 D:\Parte de MARCOS\Curso C#\Clase 13 - Manipular datos con .NET\APIproyecto\obj\Debug\net6.0\ref\APIproyecto.dll
 D:\Parte de MARCOS\Curso C#\Clase 13 - Manipular datos con .NET\APIproyecto\obj\Debug\net6.0\APIproyecto.pdb
 D:\Parte de MARCOS\Curso C#\Clase 13 - Manipular datos con .NET\APIproyecto\obj\Debug\net6.0\APIproyecto.genruntimeconfig.cache
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\bin\Debug\net6.0\appsettings.Development.json
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\bin\Debug\net6.0\appsettings.json
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\bin\Debug\net6.0\APIproyecto.exe
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\bin\Debug\net6.0\APIproyecto.deps.json
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\bin\Debug\net6.0\APIproyecto.runtimeconfig.json
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\bin\Debug\net6.0\APIproyecto.dll
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\bin\Debug\net6.0\ref\APIproyecto.dll
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\bin\Debug\net6.0\APIproyecto.pdb
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\bin\Debug\net6.0\System.Data.SqlClient.dll
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\obj\Debug\net6.0\APIproyecto.csproj.AssemblyReference.cache
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\obj\Debug\net6.0\APIproyecto.GeneratedMSBuildEditorConfig.editorconfig
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\obj\Debug\net6.0\APIproyecto.AssemblyInfoInputs.cache
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\obj\Debug\net6.0\APIproyecto.AssemblyInfo.cs
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\obj\Debug\net6.0\APIproyecto.csproj.CoreCompileInputs.cache
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\obj\Debug\net6.0\APIproyecto.MvcApplicationPartsAssemblyInfo.cs
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\obj\Debug\net6.0\APIproyecto.MvcApplicationPartsAssemblyInfo.cache
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\obj\Debug\net6.0\staticwebassets.build.json
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\obj\Debug\net6.0\staticwebassets.development.json
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\obj\Debug\net6.0\scopedcss\bundle\APIproyecto.styles.css
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\obj\Debug\net6.0\APIproyecto.csproj.CopyComplete
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\obj\Debug\net6.0\APIproyecto.dll
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\obj\Debug\net6.0\ref\APIproyecto.dll
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\obj\Debug\net6.0\APIproyecto.pdb
+D:\Parte de MARCOS\Curso C#\Clase 15 - APIs y end points de modificación\APIproyecto\obj\Debug\net6.0\APIproyecto.genruntimeconfig.cache
